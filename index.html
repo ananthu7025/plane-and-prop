@@ -6,12 +6,16 @@
   <meta name="description" content="Neha – A platform for mentorship and growth. Coming soon.">
   <title>Neha – Coming Soon</title>
 
-  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap">
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <!-- Lenis smooth scroll -->
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
 
   <script>
     tailwind.config = {
@@ -32,23 +36,75 @@
   </script>
 
   <style>
-    html { scroll-behavior: smooth; }
-
+    /* ── Float (hero plane inner) ───────────────────── */
     @keyframes float {
       0%, 100% { transform: translateY(0); }
       50%       { transform: translateY(-14px); }
     }
     .float { animation: float 4s ease-in-out infinite; }
 
-    .fade-up {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.65s ease, transform 0.65s ease;
-    }
-    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    /* ── GSAP initial states ────────────────────────── */
+    .fade-up  { opacity: 0; transform: translateY(32px); }
+    .reveal-image { will-change: clip-path; }
 
-    /* Header: transparent by default, solid when scrolled */
-    #header { transition: background 0.3s ease, border-color 0.3s ease; }
+    /* ── Word reveal spans ──────────────────────────── */
+    .word-wrap  { display: inline-block; overflow: hidden; vertical-align: bottom; }
+    .word-inner { display: inline-block; }
+
+    /* ── Scroll progress bar ────────────────────────── */
+    #scroll-progress {
+      position: fixed;
+      top: 0; left: 0;
+      height: 2px;
+      width: 0%;
+      background: #E11617;
+      z-index: 10000;
+      transform-origin: left;
+      pointer-events: none;
+    }
+
+    /* ── Custom cursor ──────────────────────────────── */
+    #cursor-dot, #cursor-ring {
+      position: fixed;
+      top: 0; left: 0;
+      pointer-events: none;
+      z-index: 9999;
+      border-radius: 50%;
+      will-change: transform;
+    }
+    #cursor-dot {
+      width: 7px; height: 7px;
+      background: #030D17;
+      margin: -3.5px 0 0 -3.5px;
+      transition: width .2s, height .2s, background .2s, margin .2s;
+    }
+    #cursor-ring {
+      width: 38px; height: 38px;
+      border: 1.5px solid rgba(3,13,23,0.22);
+      margin: -19px 0 0 -19px;
+      transition: width .3s, height .3s, border-color .3s, margin .3s;
+    }
+    body.cursor-hover #cursor-dot  { width:12px; height:12px; background:#E11617; margin:-6px 0 0 -6px; }
+    body.cursor-hover #cursor-ring { width:58px; height:58px; border-color:rgba(225,22,23,.3); margin:-29px 0 0 -29px; }
+    @media (hover: hover) { body, a, button, input { cursor: none; } }
+    @media (hover: none)  { #cursor-dot, #cursor-ring { display: none; } }
+
+    /* ── Line-draw for vision items ─────────────────── */
+    .vision-item { position: relative; }
+    .line-top, .line-bot {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: rgba(3,13,23,0.08);
+      transform-origin: left;
+      transform: scaleX(0);
+    }
+    .line-top { top: 0; }
+    .line-bot { bottom: 0; }
+
+    /* ── Header scroll ──────────────────────────────── */
+    #header { transition: background .3s ease, border-color .3s ease; }
     #header.scrolled {
       background: rgba(255,255,255,0.95) !important;
       backdrop-filter: blur(12px);
@@ -56,40 +112,41 @@
     }
   </style>
 </head>
-<body class="font-sans bg-white text-ink">
+<body class="font-sans bg-white text-ink overflow-x-hidden">
+
+  <!-- Scroll progress bar -->
+  <div id="scroll-progress"></div>
+
+  <!-- Custom cursor -->
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
 
   <!-- ============================================================
-       HEADER  (white, sticky)
+       HEADER
   ============================================================ -->
-  <header id="header" class="fixed top-0 left-0 right-0 z-50"
+  <header id="header" class="w-full z-50"
           style="background: transparent; border-bottom: 1px solid transparent;">
     <div class="max-w-7xl mx-auto px-6 flex items-center justify-center h-20">
-
-      <!-- Desktop nav -->
       <nav class="hidden md:flex items-center gap-10">
-        <a href="#home"   class="text-sm font-semibold text-ink/50 hover:text-ink transition-colors">Home</a>
-        <a href="#about"  class="text-sm font-semibold text-ink/50 hover:text-ink transition-colors">Mentorship</a>
-        <a href="#vision" class="text-sm font-semibold text-ink/50 hover:text-ink transition-colors">Vision</a>
+        <a href="#home"   class="nav-link text-sm font-semibold text-ink/50 hover:text-ink transition-colors">Home</a>
+        <a href="#about"  class="nav-link text-sm font-semibold text-ink/50 hover:text-ink transition-colors">Mentorship</a>
+        <a href="#vision" class="nav-link text-sm font-semibold text-ink/50 hover:text-ink transition-colors">Vision</a>
       </nav>
-
-      <!-- Mobile burger -->
       <button id="burger" class="md:hidden p-2 text-ink/40 hover:text-ink" aria-label="Open menu">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
         </svg>
       </button>
     </div>
-
-    <!-- Mobile menu -->
     <div id="mobile-menu" class="hidden md:hidden px-6 pb-5 flex-col gap-1 border-t border-ink/5">
-      <a href="#home"   onclick="closeMobile()" class="block text-sm font-semibold text-ink/60 hover:text-ink py-2 transition-colors">Home</a>
-      <a href="#about"  onclick="closeMobile()" class="block text-sm font-semibold text-ink/60 hover:text-ink py-2 transition-colors">Mentorship</a>
-      <a href="#vision" onclick="closeMobile()" class="block text-sm font-semibold text-ink/60 hover:text-ink py-2 transition-colors">Vision</a>
+      <a href="#home"   onclick="closeMobile()" class="nav-link block text-sm font-semibold text-ink/60 hover:text-ink py-2 transition-colors">Home</a>
+      <a href="#about"  onclick="closeMobile()" class="nav-link block text-sm font-semibold text-ink/60 hover:text-ink py-2 transition-colors">Mentorship</a>
+      <a href="#vision" onclick="closeMobile()" class="nav-link block text-sm font-semibold text-ink/60 hover:text-ink py-2 transition-colors">Vision</a>
     </div>
   </header>
 
   <!-- ============================================================
-       HERO  (light, matches original white cloud bg)
+       HERO
   ============================================================ -->
   <section id="home" class="relative overflow-hidden flex flex-col"
            style="
@@ -99,156 +156,152 @@
              background-position: top center;
              background-repeat: no-repeat;
              background-size: cover;
-             padding-top: 80px;
            ">
 
-    <!-- Bottom border decoration -->
     <div class="absolute bottom-0 left-0 right-0 pointer-events-none"
          style="height:80px; background-image: url('assets/images/banner-border.png'); background-position: bottom center; background-repeat: no-repeat; background-size: cover;"></div>
 
-    <!-- Watermark title (huge, very faint) -->
-    <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
+    <div id="hero-watermark" class="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden" style="opacity:0;">
       <span class="font-heading font-bold text-ink/[0.04] whitespace-nowrap leading-none"
             style="font-size: clamp(100px, 16vw, 220px); letter-spacing: -0.04em;">
         Coming Soon.
       </span>
     </div>
 
-    <!-- Vertically centre the content in remaining space -->
     <div class="relative z-10 flex-1 flex items-center max-w-6xl mx-auto w-full px-6 py-12">
-
-      <!-- Two-column: text left, plane right — both align at bottom -->
       <div class="w-full flex flex-col lg:flex-row lg:items-end gap-10 lg:gap-0 text-left">
 
-        <!-- LEFT: text content -->
-        <div class="w-full lg:w-[42%] fade-up visible pb-2" style="transition-delay:0.1s;">
-
+        <!-- LEFT: text -->
+        <div id="hero-text" class="w-full lg:w-[42%] pb-2" style="opacity:0; transform:translateY(40px);">
           <p class="text-[11px] font-semibold tracking-[0.14em] uppercase mb-4" style="color:#030D17;">
             Project Identity &bull; Launching Soon
           </p>
-
           <p class="text-lg font-semibold leading-relaxed mb-0" style="color:#030D17;">
             We're building something quietly. Thoughtfully. Deliberately.
           </p>
-
           <blockquote class="my-6 pl-5 italic text-[15px] leading-7" style="border-left: 2px solid #E11617; color:#030D17;">
             "The sky should inspire hope, not despair. Let's protect those who dare to reach for it."
           </blockquote>
-
           <p class="text-sm leading-7 mb-7" style="color:#030D17;">
             A new platform for mentorship and growth is taking shape.<br>
             We'll share more when the time is right.
           </p>
-
           <p class="text-[11px] font-semibold tracking-[0.1em] uppercase mb-3" style="color:#030D17;">Waitlist:</p>
-
           <form class="flex flex-col sm:flex-row gap-3" onsubmit="return false;">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              required
+            <input type="email" placeholder="Enter your email" required
               class="flex-1 px-6 py-[13px] text-sm outline-none transition-colors"
-              style="
-                border-radius: 999px;
-                border: 1.5px solid rgba(3,13,23,0.4);
-                background: rgba(255,255,255,0.9);
-                color: #030D17;
-                min-width: 0;
-              "
+              style="border-radius:999px; border:1.5px solid rgba(3,13,23,0.4); background:rgba(255,255,255,0.9); color:#030D17; min-width:0;"
               onfocus="this.style.borderColor='#030D17'"
-              onblur="this.style.borderColor='rgba(3,13,23,0.4)'"
-            >
+              onblur="this.style.borderColor='rgba(3,13,23,0.4)'">
             <button type="submit"
-                    class="px-7 py-[13px] text-sm font-bold text-white whitespace-nowrap transition-opacity hover:opacity-80"
-                    style="border-radius: 999px; background: #030D17;">
+              class="px-7 py-[13px] text-sm font-bold text-white whitespace-nowrap transition-opacity hover:opacity-80"
+              style="border-radius:999px; background:#030D17;">
               Join Waitlist
             </button>
           </form>
         </div>
 
-        <!-- RIGHT: plane image — bottom-aligned with the waitlist row -->
-        <div class="w-full lg:w-[58%] float fade-up visible" style="transition-delay:0.2s;">
-          <img src="assets/images/banner-hero.png" alt="Coming Soon"
-               class="w-full h-auto max-w-[640px] lg:max-w-full ml-auto">
+        <!-- RIGHT: plane — outer for parallax scrub, inner for float CSS -->
+        <div id="hero-image-para" class="w-full lg:w-[58%]">
+          <div id="hero-image" style="opacity:0; transform:translateY(40px);">
+            <div class="float">
+              <img src="assets/images/banner-hero.png" alt="Coming Soon"
+                   class="w-full h-auto max-w-[640px] lg:max-w-full ml-auto">
+            </div>
+          </div>
         </div>
 
       </div>
-    </div><!-- /flex-1 -->
+    </div>
   </section>
 
   <!-- ============================================================
-       MENTORSHIP SECTION  (white)
+       MARQUEE STRIP
+  ============================================================ -->
+  <div class="overflow-hidden bg-white" style="border-top:1px solid rgba(3,13,23,0.06); border-bottom:1px solid rgba(3,13,23,0.06); padding:14px 0;">
+    <div id="marquee" class="flex whitespace-nowrap will-change-transform">
+      <span class="mx-10 text-[11px] font-bold tracking-[0.2em] uppercase" style="color:rgba(3,13,23,0.15);">Mentorship</span>
+      <span class="mx-2 text-brand text-[9px]" style="opacity:.35;">&#9679;</span>
+      <span class="mx-10 text-[11px] font-bold tracking-[0.2em] uppercase" style="color:rgba(3,13,23,0.15);">Leadership</span>
+      <span class="mx-2 text-brand text-[9px]" style="opacity:.35;">&#9679;</span>
+      <span class="mx-10 text-[11px] font-bold tracking-[0.2em] uppercase" style="color:rgba(3,13,23,0.15);">Vision</span>
+      <span class="mx-2 text-brand text-[9px]" style="opacity:.35;">&#9679;</span>
+      <span class="mx-10 text-[11px] font-bold tracking-[0.2em] uppercase" style="color:rgba(3,13,23,0.15);">Growth</span>
+      <span class="mx-2 text-brand text-[9px]" style="opacity:.35;">&#9679;</span>
+      <span class="mx-10 text-[11px] font-bold tracking-[0.2em] uppercase" style="color:rgba(3,13,23,0.15);">Clarity</span>
+      <span class="mx-2 text-brand text-[9px]" style="opacity:.35;">&#9679;</span>
+      <span class="mx-10 text-[11px] font-bold tracking-[0.2em] uppercase" style="color:rgba(3,13,23,0.15);">Excellence</span>
+      <span class="mx-2 text-brand text-[9px]" style="opacity:.35;">&#9679;</span>
+      <span class="mx-10 text-[11px] font-bold tracking-[0.2em] uppercase" style="color:rgba(3,13,23,0.15);">Purpose</span>
+      <span class="mx-2 text-brand text-[9px]" style="opacity:.35;">&#9679;</span>
+      <span class="mx-10 text-[11px] font-bold tracking-[0.2em] uppercase" style="color:rgba(3,13,23,0.15);">Depth</span>
+      <span class="mx-2 text-brand text-[9px]" style="opacity:.35;">&#9679;</span>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       MENTORSHIP SECTION
   ============================================================ -->
   <section id="about" class="relative bg-white py-28 overflow-hidden">
-
     <div class="absolute inset-0 pointer-events-none"
          style="background-image: url('assets/images/about-shape.png'); background-position: center; background-repeat: no-repeat; background-size: auto;"></div>
-
     <div class="relative z-10 max-w-6xl mx-auto px-6">
-
-      <!-- Title -->
-      <div class="text-center max-w-2xl mx-auto mb-12 fade-up">
-        <h6 class="text-lg font-bold text-muted mb-5 font-sans">The Lead Mentorship</h6>
-        <h3 class="font-heading font-semibold text-ink mb-5 leading-tight"
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <h6 class="fade-up text-lg font-bold text-muted mb-5 font-sans">The Lead Mentorship</h6>
+        <h3 class="reveal-heading font-heading font-semibold text-ink mb-5 leading-tight"
             style="font-size: clamp(38px, 5vw, 58px); letter-spacing: -0.03em;">
           Led by Neha
         </h3>
-        <p class="text-base font-semibold text-muted leading-8">
+        <p class="fade-up text-base font-semibold text-muted leading-8">
           An uncompromising focus on the craft of leadership. This platform isn't about following a
           path—it's about learning to clear your own. We prioritize depth over volume, ensuring each
           interaction is a meaningful step toward your personal north star.
         </p>
       </div>
-      <!-- Image -->
-      <div class="max-w-3xl mx-auto fade-up" style="transition-delay:0.2s;">
-        <img src="assets/images/about-image.png" alt="Led by Neha" class="w-full h-auto">
+      <div class="max-w-3xl mx-auto">
+        <img src="assets/images/about-image.png" alt="Led by Neha" class="reveal-image w-full h-auto">
       </div>
-
     </div>
   </section>
 
   <!-- ============================================================
-       VISION SECTION  (white)
+       VISION SECTION
   ============================================================ -->
   <section id="vision" class="py-28 bg-white">
     <div class="max-w-6xl mx-auto px-6">
-
       <div class="flex flex-col lg:flex-row lg:items-center gap-16">
 
-        <!-- LEFT: text + list -->
+        <!-- LEFT -->
         <div class="w-full lg:w-1/2">
-          <div class="fade-up">
-            <h6 class="text-lg font-bold text-muted mb-5 font-sans">Our Philosophy</h6>
-            <h3 class="font-heading font-semibold text-ink mb-6 leading-tight"
-                style="font-size: clamp(38px, 5vw, 58px); letter-spacing: -0.03em;">
-              The Philosophy of<br>Quiet Curation.
-            </h3>
-            <p class="text-base font-semibold leading-8 text-muted">
-              In a world filled with noise, we choose silence. Our approach is stripped of the non-essential.
-              No filler content. No generic advice. Only the fundamental principles that drive excellence in
-              creative and strategic leadership.
-            </p>
-          </div>
-
+          <h6 class="fade-up text-lg font-bold text-muted mb-5 font-sans">Our Philosophy</h6>
+          <h3 class="reveal-heading font-heading font-semibold text-ink mb-6 leading-tight"
+              style="font-size: clamp(38px, 5vw, 58px); letter-spacing: -0.03em;">
+            The Philosophy of<br>Quiet Curation.
+          </h3>
+          <p class="fade-up text-base font-semibold leading-8 text-muted">
+            In a world filled with noise, we choose silence. Our approach is stripped of the non-essential.
+            No filler content. No generic advice. Only the fundamental principles that drive excellence in
+            creative and strategic leadership.
+          </p>
           <div class="mt-14">
-            <div class="fade-up py-6 text-lg font-semibold tracking-wide text-brand"
-                 style="border-top:1px solid rgba(3,13,23,0.08); transition-delay:0.1s;">
+            <div class="vision-item fade-up py-6 text-lg font-semibold tracking-wide text-brand">
+              <div class="line-top"></div>
               01 &ndash; Exclusive Focus
             </div>
-            <div class="fade-up py-6 text-lg font-semibold tracking-wide text-brand"
-                 style="border-top:1px solid rgba(3,13,23,0.08); border-bottom:1px solid rgba(3,13,23,0.08); transition-delay:0.2s;">
+            <div class="vision-item fade-up py-6 text-lg font-semibold tracking-wide text-brand">
+              <div class="line-top"></div>
+              <div class="line-bot"></div>
               02 &ndash; Direct Lineage
             </div>
           </div>
         </div>
 
-        <!-- RIGHT: image -->
-        <div class="w-full lg:w-1/2 fade-up" style="transition-delay:0.25s;">
-          <img src="assets/images/feature-7.png" alt="Philosophy" class="w-full h-auto">
+        <!-- RIGHT -->
+        <div class="w-full lg:w-1/2">
+          <img src="assets/images/feature-7.png" alt="Philosophy" class="reveal-image w-full h-auto">
         </div>
 
       </div>
-
     </div>
   </section>
 
@@ -262,34 +315,161 @@
   </footer>
 
   <!-- ============================================================
-       JS – burger + scroll fade
+       JS
   ============================================================ -->
   <script>
-    // Header: add .scrolled class after scrolling 10px
-    const header = document.getElementById('header');
-    window.addEventListener('scroll', () => {
-      header.classList.toggle('scrolled', window.scrollY > 10);
+    gsap.registerPlugin(ScrollTrigger);
+
+    // ── Lenis ────────────────────────────────────────────────────
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+    });
+    gsap.ticker.add(time => lenis.raf(time * 1000));
+    gsap.ticker.lagSmoothing(0);
+
+    // Scroll progress + header class
+    lenis.on('scroll', ({ progress, scroll }) => {
+      document.getElementById('scroll-progress').style.width = (progress * 100) + '%';
+      document.getElementById('header').classList.toggle('scrolled', scroll > 10);
     });
 
+    // Smooth anchor clicks
+    document.querySelectorAll('.nav-link').forEach(a => {
+      a.addEventListener('click', e => {
+        const href = a.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) lenis.scrollTo(target, { offset: -20, duration: 1.4 });
+        }
+      });
+    });
+
+    // ── Burger ───────────────────────────────────────────────────
     function closeMobile() {
       const m = document.getElementById('mobile-menu');
-      m.classList.add('hidden');
-      m.classList.remove('flex');
+      m.classList.add('hidden'); m.classList.remove('flex');
     }
-
     document.getElementById('burger').addEventListener('click', () => {
       const m = document.getElementById('mobile-menu');
-      m.classList.toggle('hidden');
-      m.classList.toggle('flex');
+      m.classList.toggle('hidden'); m.classList.toggle('flex');
     });
 
-    const observer = new IntersectionObserver(
-      entries => entries.forEach(e => {
-        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
-      }),
-      { threshold: 0.12 }
-    );
-    document.querySelectorAll('.fade-up:not(.visible)').forEach(el => observer.observe(el));
+    // ── Custom cursor ────────────────────────────────────────────
+    const dot  = document.getElementById('cursor-dot');
+    const ring = document.getElementById('cursor-ring');
+    let mx = -200, my = -200, rx = -200, ry = -200;
+    window.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+    gsap.ticker.add(() => {
+      gsap.set(dot,  { x: mx, y: my });
+      rx += (mx - rx) * 0.11;
+      ry += (my - ry) * 0.11;
+      gsap.set(ring, { x: rx, y: ry });
+    });
+    document.querySelectorAll('a, button, input').forEach(el => {
+      el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+      el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+    });
+
+    // ── Hero entrance ────────────────────────────────────────────
+    gsap.timeline({ defaults: { ease: 'power3.out' } })
+      .to('#hero-watermark', { opacity: 1, duration: 1.4 }, 0)
+      .to('#hero-text',      { opacity: 1, y: 0, duration: 1.0 }, 0.2)
+      .to('#hero-image',     { opacity: 1, y: 0, duration: 1.0 }, 0.4);
+
+    // Hero plane subtle parallax on scroll
+    gsap.to('#hero-image-para', {
+      yPercent: 14,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '#home',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: 1.5,
+      },
+    });
+
+    // ── Word-by-word heading reveal ──────────────────────────────
+    function splitAndReveal(el) {
+      const nodes = [];
+      el.childNodes.forEach(node => {
+        if (node.nodeType === Node.TEXT_NODE) {
+          node.textContent.split(/(\s+)/).forEach(chunk => {
+            if (/^\s+$/.test(chunk)) {
+              nodes.push(document.createTextNode(' '));
+            } else if (chunk) {
+              const outer = document.createElement('span');
+              outer.className = 'word-wrap';
+              const inner = document.createElement('span');
+              inner.className = 'word-inner';
+              inner.textContent = chunk;
+              gsap.set(inner, { y: '115%' });
+              outer.appendChild(inner);
+              nodes.push(outer);
+            }
+          });
+        } else {
+          nodes.push(node.cloneNode(true)); // preserve <br> etc.
+        }
+      });
+      el.innerHTML = '';
+      nodes.forEach(n => el.appendChild(n));
+
+      gsap.to(el.querySelectorAll('.word-inner'), {
+        y: '0%',
+        duration: 0.9,
+        ease: 'power3.out',
+        stagger: 0.07,
+        scrollTrigger: { trigger: el, start: 'top 87%' },
+      });
+    }
+    document.querySelectorAll('.reveal-heading').forEach(splitAndReveal);
+
+    // ── Clip-path image reveals ──────────────────────────────────
+    gsap.utils.toArray('.reveal-image').forEach(img => {
+      gsap.fromTo(img,
+        { clipPath: 'inset(0 100% 0 0)' },
+        {
+          clipPath: 'inset(0 0% 0 0)',
+          duration: 1.25,
+          ease: 'power3.inOut',
+          scrollTrigger: { trigger: img, start: 'top 82%' },
+        }
+      );
+    });
+
+    // ── Fade-ups ─────────────────────────────────────────────────
+    gsap.utils.toArray('.fade-up').forEach((el, i) => {
+      gsap.to(el, {
+        opacity: 1, y: 0,
+        duration: 0.75,
+        ease: 'power3.out',
+        delay: (i % 3) * 0.08,
+        scrollTrigger: { trigger: el, start: 'top 88%' },
+      });
+    });
+
+    // ── Line-draw on vision items ────────────────────────────────
+    gsap.utils.toArray('.line-top, .line-bot').forEach(line => {
+      gsap.to(line, {
+        scaleX: 1,
+        duration: 1.0,
+        ease: 'power3.inOut',
+        scrollTrigger: { trigger: line, start: 'top 90%' },
+      });
+    });
+
+    // ── Marquee (infinite loop) ──────────────────────────────────
+    const marquee = document.getElementById('marquee');
+    marquee.innerHTML += marquee.innerHTML; // duplicate for seamless loop
+    gsap.to(marquee, {
+      xPercent: -50,
+      duration: 30,
+      ease: 'none',
+      repeat: -1,
+    });
   </script>
 
 </body>
