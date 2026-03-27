@@ -1,0 +1,327 @@
+@font-face {
+  font-family: 'hyperfly-icons-two';
+  src: url('fonts/hyperfly-icons-twof1a2.eot?uryjr');
+  src: url('fonts/hyperfly-icons-twof1a2.eot?uryjr#iefix') format('embedded-opentype'),
+    url('fonts/hyperfly-icons-twof1a2.ttf?uryjr') format('truetype'),
+    url('fonts/hyperfly-icons-twof1a2.woff?uryjr') format('woff'),
+    url('fonts/hyperfly-icons-twof1a2.svg?uryjr#hyperfly-icons-two') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="hyperfly-icons-two-"],
+[class*=" hyperfly-icons-two-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'hyperfly-icons-two' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.hyperfly-icons-two-team:before {
+  content: "\e911";
+}
+
+.hyperfly-icons-two-quote:before {
+  content: "\e913";
+}
+
+.hyperfly-icons-two-acupuncture:before {
+  content: "\e919";
+}
+
+.hyperfly-icons-two-acupuncture1:before {
+  content: "\e91a";
+}
+
+.hyperfly-icons-two-aroma:before {
+  content: "\e91b";
+}
+
+.hyperfly-icons-two-aromatherapy:before {
+  content: "\e91c";
+}
+
+.hyperfly-icons-two-acupuncture2:before {
+  content: "\e91d";
+}
+
+.hyperfly-icons-two-bamboo:before {
+  content: "\e91e";
+}
+
+.hyperfly-icons-two-bathrope:before {
+  content: "\e91f";
+}
+
+.hyperfly-icons-two-bathtub:before {
+  content: "\e920";
+}
+
+.hyperfly-icons-two-beauty-treatment:before {
+  content: "\e921";
+}
+
+.hyperfly-icons-two-spa-bed:before {
+  content: "\e922";
+}
+
+.hyperfly-icons-two-body-scrub:before {
+  content: "\e923";
+}
+
+.hyperfly-icons-two-hot-stone:before {
+  content: "\e924";
+}
+
+.hyperfly-icons-two-Booking:before {
+  content: "\e925";
+}
+
+.hyperfly-icons-two-candle:before {
+  content: "\e926";
+}
+
+.hyperfly-icons-two-coconut-oil:before {
+  content: "\e927";
+}
+
+.hyperfly-icons-two-skincare:before {
+  content: "\e928";
+}
+
+.hyperfly-icons-two-therapy:before {
+  content: "\e929";
+}
+
+.hyperfly-icons-two-essential-oil:before {
+  content: "\e92a";
+}
+
+.hyperfly-icons-two-eye-treatment:before {
+  content: "\e92b";
+}
+
+.hyperfly-icons-two-facial-mask:before {
+  content: "\e92c";
+}
+
+.hyperfly-icons-two-treatment:before {
+  content: "\e92d";
+}
+
+.hyperfly-icons-two-massage:before {
+  content: "\e92e";
+}
+
+.hyperfly-icons-two-flower:before {
+  content: "\e92f";
+}
+
+.hyperfly-icons-two-foot-massage:before {
+  content: "\e930";
+}
+
+.hyperfly-icons-two-foot-spa:before {
+  content: "\e931";
+}
+
+.hyperfly-icons-two-reflexology:before {
+  content: "\e932";
+}
+
+.hyperfly-icons-two-massage1:before {
+  content: "\e933";
+}
+
+.hyperfly-icons-two-herb:before {
+  content: "\e934";
+}
+
+.hyperfly-icons-two-herbal-massage:before {
+  content: "\e935";
+}
+
+.hyperfly-icons-two-honey:before {
+  content: "\e936";
+}
+
+.hyperfly-icons-two-spa-candles:before {
+  content: "\e937";
+}
+
+.hyperfly-icons-two-hot-tub:before {
+  content: "\e938";
+}
+
+.hyperfly-icons-two-incense-sticks:before {
+  content: "\e939";
+}
+
+.hyperfly-icons-two-jacuzzi:before {
+  content: "\e93a";
+}
+
+.hyperfly-icons-two-massage-therapist:before {
+  content: "\e93b";
+}
+
+.hyperfly-icons-two-lotion:before {
+  content: "\e93c";
+}
+
+.hyperfly-icons-two-body-scrub1:before {
+  content: "\e93d";
+}
+
+.hyperfly-icons-two-mortar:before {
+  content: "\e93e";
+}
+
+.hyperfly-icons-two-body-massage1:before {
+  content: "\e93f";
+}
+
+.hyperfly-icons-two-sauna:before {
+  content: "\e940";
+}
+
+.hyperfly-icons-two-slippers:before {
+  content: "\e941";
+}
+
+.hyperfly-icons-two-soap:before {
+  content: "\e942";
+}
+
+.hyperfly-icons-two-sponge:before {
+  content: "\e943";
+}
+
+.hyperfly-icons-two-stones:before {
+  content: "\e944";
+}
+
+.hyperfly-icons-two-pool:before {
+  content: "\e945";
+}
+
+.hyperfly-icons-two-tea-pot:before {
+  content: "\e946";
+}
+
+.hyperfly-icons-two-towels:before {
+  content: "\e947";
+}
+
+.hyperfly-icons-two-facial-treatment:before {
+  content: "\e948";
+}
+
+.hyperfly-icons-two-wax:before {
+  content: "\e949";
+}
+
+.hyperfly-icons-two-wrapping:before {
+  content: "\e94a";
+}
+
+.hyperfly-icons-two-alarm:before {
+  content: "\e900";
+}
+
+.hyperfly-icons-two-aroma1:before {
+  content: "\e901";
+}
+
+.hyperfly-icons-two-arrow-left:before {
+  content: "\e902";
+}
+
+.hyperfly-icons-two-arrow-left1:before {
+  content: "\e903";
+}
+
+.hyperfly-icons-two-balance:before {
+  content: "\e904";
+}
+
+.hyperfly-icons-two-body-massage:before {
+  content: "\e905";
+}
+
+.hyperfly-icons-two-cart:before {
+  content: "\e906";
+}
+
+.hyperfly-icons-two-check:before {
+  content: "\e907";
+}
+
+.hyperfly-icons-two-client:before {
+  content: "\e908";
+}
+
+.hyperfly-icons-two-comments:before {
+  content: "\e909";
+}
+
+.hyperfly-icons-two-discount:before {
+  content: "\e90a";
+}
+
+.hyperfly-icons-two-face-massage:before {
+  content: "\e90b";
+}
+
+.hyperfly-icons-two-herbal:before {
+  content: "\e90c";
+}
+
+.hyperfly-icons-two-logo:before {
+  content: "\e90d";
+}
+
+.hyperfly-icons-two-paper-plane:before {
+  content: "\e90e";
+}
+
+.hyperfly-icons-two-phone-call:before {
+  content: "\e90f";
+}
+
+.hyperfly-icons-two-play:before {
+  content: "\e910";
+}
+
+.hyperfly-icons-two-search:before {
+  content: "\e912";
+}
+
+.hyperfly-icons-two-up-right-arrow:before {
+  content: "\e914";
+}
+
+.hyperfly-icons-two-up-right-arrow1:before {
+  content: "\e915";
+}
+
+.hyperfly-icons-two-down-right-arrow:before {
+  content: "\e916";
+}
+
+.hyperfly-icons-two-down-left-arrow:before {
+  content: "\e917";
+}
+
+.hyperfly-icons-two-user:before {
+  content: "\e918";
+}

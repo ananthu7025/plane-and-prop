@@ -1,0 +1,214 @@
+@font-face {
+  font-family: "hyperfly-icon-three";
+  src: url("fonts/hyperfly-icon-three3bc7.eot?nm0o38");
+  src:
+    url("fonts/hyperfly-icon-three3bc7.eot?nm0o38#iefix")
+      format("embedded-opentype"),
+    url("fonts/hyperfly-icon-three3bc7.ttf?nm0o38") format("truetype"),
+    url("fonts/hyperfly-icon-three3bc7.woff?nm0o38") format("woff"),
+    url("fonts/hyperfly-icon-three3bc7.svg?nm0o38#hyperfly-icon-three")
+      format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="hyperfly-icon-three-"],
+[class*=" hyperfly-icon-three-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "hyperfly-icon-three" !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.hyperfly-icon-three-flower:before {
+  content: "\e900";
+}
+
+.hyperfly-icon-three-arm:before {
+  content: "\e901";
+}
+
+.hyperfly-icon-three-yoga:before {
+  content: "\e902";
+}
+
+.hyperfly-icon-three-stethoscope:before {
+  content: "\e903";
+}
+
+.hyperfly-icon-three-shower-gel:before {
+  content: "\e904";
+}
+
+.hyperfly-icon-three-sun:before {
+  content: "\e905";
+}
+
+.hyperfly-icon-three-no-smoke:before {
+  content: "\e906";
+}
+
+.hyperfly-icon-three-apple:before {
+  content: "\e907";
+}
+
+.hyperfly-icon-three-weight-scale:before {
+  content: "\e908";
+}
+
+.hyperfly-icon-three-lotion:before {
+  content: "\e909";
+}
+
+.hyperfly-icon-three-heart-rate:before {
+  content: "\e90a";
+}
+
+.hyperfly-icon-three-brush-teeth:before {
+  content: "\e90b";
+}
+
+.hyperfly-icon-three-jar:before {
+  content: "\e90c";
+}
+
+.hyperfly-icon-three-stopwatch:before {
+  content: "\e90d";
+}
+
+.hyperfly-icon-three-shower-head:before {
+  content: "\e90e";
+}
+
+.hyperfly-icon-three-tea-cup:before {
+  content: "\e90f";
+}
+
+.hyperfly-icon-three-sprout:before {
+  content: "\e910";
+}
+
+.hyperfly-icon-three-bottle:before {
+  content: "\e911";
+}
+
+.hyperfly-icon-three-water-drop:before {
+  content: "\e912";
+}
+
+.hyperfly-icon-three-tooth:before {
+  content: "\e913";
+}
+
+.hyperfly-icon-three-bowl:before {
+  content: "\e914";
+}
+
+.hyperfly-icon-three-clipboard:before {
+  content: "\e915";
+}
+
+.hyperfly-icon-three-dumbbells:before {
+  content: "\e916";
+}
+
+.hyperfly-icon-three-Flip-flop:before {
+  content: "\e917";
+}
+
+.hyperfly-icon-three-heart-rate1:before {
+  content: "\e918";
+}
+
+.hyperfly-icon-three-bed:before {
+  content: "\e919";
+}
+
+.hyperfly-icon-three-calendar:before {
+  content: "\e91a";
+}
+
+.hyperfly-icon-three-shield:before {
+  content: "\e91b";
+}
+
+.hyperfly-icon-three-towel:before {
+  content: "\e91c";
+}
+
+.hyperfly-icon-three-gym-ball:before {
+  content: "\e91d";
+}
+
+.hyperfly-icon-three-yoga-mat:before {
+  content: "\e91e";
+}
+
+.hyperfly-icon-three-juice:before {
+  content: "\e91f";
+}
+
+.hyperfly-icon-three-heart:before {
+  content: "\e920";
+}
+
+.hyperfly-icon-three-bicycle:before {
+  content: "\e921";
+}
+
+.hyperfly-icon-three-medicine:before {
+  content: "\e922";
+}
+
+.hyperfly-icon-three-eye:before {
+  content: "\e923";
+}
+
+.hyperfly-icon-three-water-bottle:before {
+  content: "\e924";
+}
+
+.hyperfly-icon-three-mind:before {
+  content: "\e925";
+}
+
+.hyperfly-icon-three-medical-insurance:before {
+  content: "\e926";
+}
+
+.hyperfly-icon-three-basketball-ball:before {
+  content: "\e927";
+}
+
+.hyperfly-icon-three-love-message:before {
+  content: "\e928";
+}
+
+.hyperfly-icon-three-mind1:before {
+  content: "\e929";
+}
+
+.hyperfly-icon-three-eyedropper:before {
+  content: "\e92a";
+}
+
+.hyperfly-icon-three-emotion:before {
+  content: "\e92b";
+}
+
+.hyperfly-icon-three-lotus-flower:before {
+  content: "\e92c";
+}
+
+.hyperfly-icon-three-skin-care:before {
+  content: "\e92d";
+}

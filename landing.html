@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Neha – A platform for mentorship and growth. Coming soon.">
+  <title>Neha – Coming Soon</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans:    ['Manrope', 'sans-serif'],
+            heading: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            brand: '#E11617',
+            ink:   '#030D17',
+            muted: '#566879',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-14px); }
+    }
+    .float { animation: float 4s ease-in-out infinite; }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* Header: transparent by default, solid when scrolled */
+    #header { transition: background 0.3s ease, border-color 0.3s ease; }
+    #header.scrolled {
+      background: rgba(255,255,255,0.95) !important;
+      backdrop-filter: blur(12px);
+      border-bottom-color: rgba(3,13,23,0.08) !important;
+    }
+  </style>
+</head>
+<body class="font-sans bg-white text-ink">
+
+  <!-- ============================================================
+       HEADER  (white, sticky)
+  ============================================================ -->
+  <header id="header" class="fixed top-0 left-0 right-0 z-50"
+          style="background: transparent; border-bottom: 1px solid transparent;">
+    <div class="max-w-7xl mx-auto px-6 flex items-center justify-center h-20">
+
+      <!-- Desktop nav -->
+      <nav class="hidden md:flex items-center gap-10">
+        <a href="#home"   class="text-sm font-semibold text-ink/50 hover:text-ink transition-colors">Home</a>
+        <a href="#about"  class="text-sm font-semibold text-ink/50 hover:text-ink transition-colors">Mentorship</a>
+        <a href="#vision" class="text-sm font-semibold text-ink/50 hover:text-ink transition-colors">Vision</a>
+      </nav>
+
+      <!-- Mobile burger -->
+      <button id="burger" class="md:hidden p-2 text-ink/40 hover:text-ink" aria-label="Open menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden px-6 pb-5 flex-col gap-1 border-t border-ink/5">
+      <a href="#home"   onclick="closeMobile()" class="block text-sm font-semibold text-ink/60 hover:text-ink py-2 transition-colors">Home</a>
+      <a href="#about"  onclick="closeMobile()" class="block text-sm font-semibold text-ink/60 hover:text-ink py-2 transition-colors">Mentorship</a>
+      <a href="#vision" onclick="closeMobile()" class="block text-sm font-semibold text-ink/60 hover:text-ink py-2 transition-colors">Vision</a>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       HERO  (light, matches original white cloud bg)
+  ============================================================ -->
+  <section id="home" class="relative overflow-hidden flex flex-col"
+           style="
+             min-height: 100vh;
+             background-color: #fff;
+             background-image: url('assets/images/banner-bg.png');
+             background-position: top center;
+             background-repeat: no-repeat;
+             background-size: cover;
+             padding-top: 80px;
+           ">
+
+    <!-- Bottom border decoration -->
+    <div class="absolute bottom-0 left-0 right-0 pointer-events-none"
+         style="height:80px; background-image: url('assets/images/banner-border.png'); background-position: bottom center; background-repeat: no-repeat; background-size: cover;"></div>
+
+    <!-- Watermark title (huge, very faint) -->
+    <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
+      <span class="font-heading font-bold text-ink/[0.04] whitespace-nowrap leading-none"
+            style="font-size: clamp(100px, 16vw, 220px); letter-spacing: -0.04em;">
+        Coming Soon.
+      </span>
+    </div>
+
+    <!-- Vertically centre the content in remaining space -->
+    <div class="relative z-10 flex-1 flex items-center max-w-6xl mx-auto w-full px-6 py-12">
+
+      <!-- Two-column: text left, plane right — both align at bottom -->
+      <div class="w-full flex flex-col lg:flex-row lg:items-end gap-10 lg:gap-0 text-left">
+
+        <!-- LEFT: text content -->
+        <div class="w-full lg:w-[42%] fade-up visible pb-2" style="transition-delay:0.1s;">
+
+          <p class="text-[11px] font-semibold tracking-[0.14em] uppercase mb-4" style="color:#030D17;">
+            Project Identity &bull; Launching Soon
+          </p>
+
+          <p class="text-lg font-semibold leading-relaxed mb-0" style="color:#030D17;">
+            We're building something quietly. Thoughtfully. Deliberately.
+          </p>
+
+          <blockquote class="my-6 pl-5 italic text-[15px] leading-7" style="border-left: 2px solid #E11617; color:#030D17;">
+            "The sky should inspire hope, not despair. Let's protect those who dare to reach for it."
+          </blockquote>
+
+          <p class="text-sm leading-7 mb-7" style="color:#030D17;">
+            A new platform for mentorship and growth is taking shape.<br>
+            We'll share more when the time is right.
+          </p>
+
+          <p class="text-[11px] font-semibold tracking-[0.1em] uppercase mb-3" style="color:#030D17;">Waitlist:</p>
+
+          <form class="flex flex-col sm:flex-row gap-3" onsubmit="return false;">
+            <input
+              type="email"
+              placeholder="Enter your email"
+              required
+              class="flex-1 px-6 py-[13px] text-sm outline-none transition-colors"
+              style="
+                border-radius: 999px;
+                border: 1.5px solid rgba(3,13,23,0.4);
+                background: rgba(255,255,255,0.9);
+                color: #030D17;
+                min-width: 0;
+              "
+              onfocus="this.style.borderColor='#030D17'"
+              onblur="this.style.borderColor='rgba(3,13,23,0.4)'"
+            >
+            <button type="submit"
+                    class="px-7 py-[13px] text-sm font-bold text-white whitespace-nowrap transition-opacity hover:opacity-80"
+                    style="border-radius: 999px; background: #030D17;">
+              Join Waitlist
+            </button>
+          </form>
+        </div>
+
+        <!-- RIGHT: plane image — bottom-aligned with the waitlist row -->
+        <div class="w-full lg:w-[58%] float fade-up visible" style="transition-delay:0.2s;">
+          <img src="assets/images/banner-hero.png" alt="Coming Soon"
+               class="w-full h-auto max-w-[640px] lg:max-w-full ml-auto">
+        </div>
+
+      </div>
+    </div><!-- /flex-1 -->
+  </section>
+
+  <!-- ============================================================
+       MENTORSHIP SECTION  (white)
+  ============================================================ -->
+  <section id="about" class="relative bg-white py-28 overflow-hidden">
+
+    <div class="absolute inset-0 pointer-events-none"
+         style="background-image: url('assets/images/about-shape.png'); background-position: center; background-repeat: no-repeat; background-size: auto;"></div>
+
+    <div class="relative z-10 max-w-6xl mx-auto px-6">
+
+      <!-- Title -->
+      <div class="text-center max-w-2xl mx-auto mb-12 fade-up">
+        <h6 class="text-lg font-bold text-muted mb-5 font-sans">The Lead Mentorship</h6>
+        <h3 class="font-heading font-semibold text-ink mb-5 leading-tight"
+            style="font-size: clamp(38px, 5vw, 58px); letter-spacing: -0.03em;">
+          Led by Neha
+        </h3>
+        <p class="text-base font-semibold text-muted leading-8">
+          An uncompromising focus on the craft of leadership. This platform isn't about following a
+          path—it's about learning to clear your own. We prioritize depth over volume, ensuring each
+          interaction is a meaningful step toward your personal north star.
+        </p>
+      </div>
+      <!-- Image -->
+      <div class="max-w-3xl mx-auto fade-up" style="transition-delay:0.2s;">
+        <img src="assets/images/about-image.png" alt="Led by Neha" class="w-full h-auto">
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       VISION SECTION  (white)
+  ============================================================ -->
+  <section id="vision" class="py-28 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+
+      <div class="flex flex-col lg:flex-row lg:items-center gap-16">
+
+        <!-- LEFT: text + list -->
+        <div class="w-full lg:w-1/2">
+          <div class="fade-up">
+            <h6 class="text-lg font-bold text-muted mb-5 font-sans">Our Philosophy</h6>
+            <h3 class="font-heading font-semibold text-ink mb-6 leading-tight"
+                style="font-size: clamp(38px, 5vw, 58px); letter-spacing: -0.03em;">
+              The Philosophy of<br>Quiet Curation.
+            </h3>
+            <p class="text-base font-semibold leading-8 text-muted">
+              In a world filled with noise, we choose silence. Our approach is stripped of the non-essential.
+              No filler content. No generic advice. Only the fundamental principles that drive excellence in
+              creative and strategic leadership.
+            </p>
+          </div>
+
+          <div class="mt-14">
+            <div class="fade-up py-6 text-lg font-semibold tracking-wide text-brand"
+                 style="border-top:1px solid rgba(3,13,23,0.08); transition-delay:0.1s;">
+              01 &ndash; Exclusive Focus
+            </div>
+            <div class="fade-up py-6 text-lg font-semibold tracking-wide text-brand"
+                 style="border-top:1px solid rgba(3,13,23,0.08); border-bottom:1px solid rgba(3,13,23,0.08); transition-delay:0.2s;">
+              02 &ndash; Direct Lineage
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: image -->
+        <div class="w-full lg:w-1/2 fade-up" style="transition-delay:0.25s;">
+          <img src="assets/images/feature-7.png" alt="Philosophy" class="w-full h-auto">
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer style="border-top:1px solid rgba(3,13,23,0.08);">
+    <div class="max-w-6xl mx-auto px-6 py-5 text-center">
+      <p class="text-xs text-muted m-0">&copy; 2026 @luminous logics. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       JS – burger + scroll fade
+  ============================================================ -->
+  <script>
+    // Header: add .scrolled class after scrolling 10px
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 10);
+    });
+
+    function closeMobile() {
+      const m = document.getElementById('mobile-menu');
+      m.classList.add('hidden');
+      m.classList.remove('flex');
+    }
+
+    document.getElementById('burger').addEventListener('click', () => {
+      const m = document.getElementById('mobile-menu');
+      m.classList.toggle('hidden');
+      m.classList.toggle('flex');
+    });
+
+    const observer = new IntersectionObserver(
+      entries => entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+      }),
+      { threshold: 0.12 }
+    );
+    document.querySelectorAll('.fade-up:not(.visible)').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

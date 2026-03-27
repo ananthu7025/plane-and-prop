@@ -1,0 +1,266 @@
+@font-face {
+  font-family: "icomoon";
+  src: url("fonts/icomoond18c.eot?rev9bx");
+  src:
+    url("fonts/icomoond18c.eot?rev9bx#iefix") format("embedded-opentype"),
+    url("fonts/icomoond18c.ttf?rev9bx") format("truetype"),
+    url("fonts/icomoond18c.woff?rev9bx") format("woff"),
+    url("fonts/icomoond18c.svg?rev9bx#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "icomoon" !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-access-aircraft:before {
+  content: "\e900";
+}
+.icon-aircraft:before {
+  content: "\e901";
+}
+.icon-aircraft-management:before {
+  content: "\e902";
+}
+.icon-aircraft-management-two:before {
+  content: "\e903";
+}
+.icon-airline:before {
+  content: "\e904";
+}
+.icon-air-mobility:before {
+  content: "\e905";
+}
+.icon-angles-double-left:before {
+  content: "\e907";
+}
+.icon-angles-double-right:before {
+  content: "\e906";
+}
+.icon-arrow-right:before {
+  content: "\e908";
+}
+.icon-arrow-left:before {
+  content: "\e949";
+}
+.icon-arrow-up1:before {
+  content: "\e94a";
+}
+.icon-arrow-right1:before {
+  content: "\e94b";
+}
+.icon-arrow-up:before {
+  content: "\e909";
+}
+.icon-arrow-right2:before {
+  content: "\e94c";
+}
+.icon-arrow-left1:before {
+  content: "\e94d";
+}
+.icon-arrow-down:before {
+  content: "\e94e";
+}
+.icon-aviation:before {
+  content: "\e90a";
+}
+.icon-calendar-days:before {
+  content: "\e90b";
+}
+.icon-call:before {
+  content: "\e90c";
+}
+.icon-cargo-flight:before {
+  content: "\e90d";
+}
+.icon-chair-office:before {
+  content: "\e90e";
+}
+.icon-charter-service:before {
+  content: "\e90f";
+}
+.icon-check:before {
+  content: "\e910";
+}
+.icon-comfort-luxury:before {
+  content: "\e911";
+}
+.icon-comment:before {
+  content: "\e912";
+}
+.icon-crew:before {
+  content: "\e913";
+}
+.icon-dashed:before {
+  content: "\e914";
+}
+.icon-elite:before {
+  content: "\e915";
+}
+.icon-email:before {
+  content: "\e916";
+}
+.icon-envelope:before {
+  content: "\e917";
+}
+.icon-envelope-two:before {
+  content: "\e918";
+}
+.icon-flight:before {
+  content: "\e919";
+}
+.icon-founded:before {
+  content: "\e91a";
+}
+.icon-gauge:before {
+  content: "\e91b";
+}
+.icon-gear:before {
+  content: "\e91c";
+}
+.icon-global:before {
+  content: "\e91d";
+}
+.icon-global-coverage:before {
+  content: "\e91e";
+}
+.icon-global-two:before {
+  content: "\e91f";
+}
+.icon-goals:before {
+  content: "\e920";
+}
+.icon-helicopter:before {
+  content: "\e921";
+}
+.icon-helicopter-two:before {
+  content: "\e922";
+}
+.icon-jet-biman:before {
+  content: "\e923";
+}
+.icon-jet-biman-two:before {
+  content: "\e924";
+}
+.icon-jet-fighter:before {
+  content: "\e925";
+}
+.icon-jet-private:before {
+  content: "\e926";
+}
+.icon-large-jet:before {
+  content: "\e927";
+}
+.icon-lesuire-travel:before {
+  content: "\e928";
+}
+.icon-light-jet:before {
+  content: "\e929";
+}
+.icon-location:before {
+  content: "\e92a";
+}
+.icon-location-dot:before {
+  content: "\e92b";
+}
+.icon-logo:before {
+  content: "\e92c";
+}
+.icon-mail:before {
+  content: "\e92d";
+}
+.icon-midsize-jet:before {
+  content: "\e92e";
+}
+.icon-nav:before {
+  content: "\e92f";
+}
+.icon-network:before {
+  content: "\e930";
+}
+.icon-partner:before {
+  content: "\e931";
+}
+.icon-payment:before {
+  content: "\e932";
+}
+.icon-personal-schedule:before {
+  content: "\e933";
+}
+.icon-phone:before {
+  content: "\e934";
+}
+.icon-phone-three:before {
+  content: "\e935";
+}
+.icon-phone-two:before {
+  content: "\e936";
+}
+.icon-plane-departure:before {
+  content: "\e937";
+}
+.icon-platinum:before {
+  content: "\e938";
+}
+.icon-play:before {
+  content: "\e939";
+}
+.icon-private-aircraft:before {
+  content: "\e93a";
+}
+.icon-process:before {
+  content: "\e93b";
+}
+.icon-profit:before {
+  content: "\e93c";
+}
+.icon-respond:before {
+  content: "\e93d";
+}
+.icon-sack-dollar:before {
+  content: "\e93e";
+}
+.icon-safe-secure:before {
+  content: "\e93f";
+}
+.icon-search:before {
+  content: "\e940";
+}
+.icon-silver:before {
+  content: "\e941";
+}
+.icon-source-sale:before {
+  content: "\e942";
+}
+.icon-suitcase-rolling:before {
+  content: "\e943";
+}
+.icon-super-jet:before {
+  content: "\e944";
+}
+.icon-trip:before {
+  content: "\e945";
+}
+.icon-unmatch:before {
+  content: "\e946";
+}
+.icon-user:before {
+  content: "\e947";
+}
+.icon-user-two:before {
+  content: "\e948";
+}
